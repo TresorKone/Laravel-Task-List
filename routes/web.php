@@ -143,5 +143,14 @@ Route::delete('/task/{id}', function ($id) {
         ->with('success', 'Task deleted');
 })->name('tasks.destroy');
 
+Route::put('tasks/state-toggle/{id}', function ($id) {
+    $task = Task::findOrFail($id);
+   $task->statusToggle();
+   $task->save();
+
+   return redirect()->back()
+       ->with('success', 'task updated!');
+})->name('tasks.state-toggle');
+
 
 

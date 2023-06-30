@@ -24,5 +24,19 @@
 
         </form>
     </div>
+
+            <div>
+                <form action="{{ route('tasks.state-toggle', ['id' => $task->id]) }}" method="post">
+                    @csrf
+                    @method('PUT')
+
+                    <div>
+                        <button type="submit">
+                            The Task is {{ $task->completed ? 'not completed' : 'completed' }}
+                        </button>
+                    </div>
+
+                </form>
+            </div>
 @endsection
 
