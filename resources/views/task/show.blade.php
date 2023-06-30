@@ -14,6 +14,13 @@
     <p>{{ $task->description }}</p>
     <p>{{ $task->created_at }}</p>
     <p>{{ $task->updated_at }}</p>
+    <div>
+        @if($task->completed)
+            Completed
+        @else
+            Not Completed
+        @endif
+    </div>
 
     <div>
         <form action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="post">
@@ -32,7 +39,7 @@
 
                     <div>
                         <button type="submit">
-                            The Task is {{ $task->completed ? 'not completed' : 'completed' }}
+                            The Task is {{ $task->completed ? 'completed' : 'not completed' }}
                         </button>
                     </div>
 
