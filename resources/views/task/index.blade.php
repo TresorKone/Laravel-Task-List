@@ -20,4 +20,10 @@
             <div> somethings went wrong when fetching the data array</div>
         @endif
     </div>
+
+    <div>
+        @if($tasks->count())
+            {{ $tasks->links() }}
+        @endif
+    </div>
 @endsection

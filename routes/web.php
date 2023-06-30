@@ -70,7 +70,7 @@ Route::get('/', function () {
 
 Route::get('/tasks/index', function () {
     return view('task.index', [
-        "tasks" => Task::latest()->get()
+        "tasks" => Task::latest()->paginate()
     ]);
 })->name('tasks.index');
 
