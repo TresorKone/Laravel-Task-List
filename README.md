@@ -15,5 +15,5 @@
         - create a .env file to make a connection with your database.
         - lauch the laravel server with the command `php artisan serve`.
         and enjoy.
-        &#9888; if you want to create a database, apply the migrations and and launch some seed to fill your data with data to work
+        PS: if you want to create a database, apply the migrations and and launch some seed to fill your data with data to work
         use the command `php artisan migrate:refresh --seed`
