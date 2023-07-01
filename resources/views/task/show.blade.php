@@ -9,41 +9,50 @@
         <div>{{ session('success') }}</div>
     @endif
 
-    <h2>{{ $task->title }}<h2>
+    <div class="border-4 h-[70%] flex flex-col items-center justify-center">
+        <h2 class="py-2">{{ $task->title }} (title)</h2>
 
-    <p>{{ $task->description }}</p>
-    <p>{{ $task->created_at }}</p>
-    <p>{{ $task->updated_at }}</p>
-    <div>
-        @if($task->completed)
-            Completed
-        @else
-            Not Completed
-        @endif
+        <p class="py-2">{{ $task->description }} (description)</p>
+        <p class="py-2">{{ $task->long_description }} (long description)</p>
+        <p class="py-2">{{ $task->created_at }} (created at)</p>
+        <p class="py-2">{{ $task->updated_at }} (updated at)</p>
+        <div class="py-2">
+            @if($task->completed)
+                Completed (status)
+            @else
+                Not Completed (status)
+            @endif
+        </div>
     </div>
 
-    <div>
-        <form action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="post">
-            @csrf
-            @method('DELETE')
 
-            <div><button type="submit">Delete</button></div>
 
-        </form>
-    </div>
+   <div class=" min-h-[20%] flex flex-col items-center justify-center">
+       <div>
+           <a class="underline" href={{ route('tasks.edit', ['id' => $task->id]) }}>Edit</a>
+       </div>
 
-            <div>
-                <form action="{{ route('tasks.state-toggle', ['id' => $task->id]) }}" method="post">
-                    @csrf
-                    @method('PUT')
+       <div class="py-2">
+           <form action="{{ route('tasks.destroy', ['id' => $task->id]) }}" method="post">
+               @csrf
+               @method('DELETE')
+               <div ><button class="underline" type="submit">Delete</button></div>
+           </form>
+       </div>
 
-                    <div>
-                        <button type="submit">
-                            The Task is {{ $task->completed ? 'completed' : 'not completed' }}
-                        </button>
-                    </div>
+       <div>
+           <form action="{{ route('tasks.state-toggle', ['id' => $task->id]) }}" method="post">
+               @csrf
+               @method('PUT')
 
-                </form>
-            </div>
+               <div>
+                   <button class="underline" type="submit">
+                       The Task is {{ $task->completed ? 'completed' : 'not completed' }}
+                   </button>
+               </div>
+           </form>
+       </div>
+   </div>
+
 @endsection
 

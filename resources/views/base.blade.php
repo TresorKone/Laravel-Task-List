@@ -10,9 +10,22 @@
 </head>
 <body class="font-mono">
     <header>
-        <h2>@yield('title')</h2>
+        <div class="py-8 min-h-[20%] flex items-center justify-center">
+            <a href="/">
+                <img width="50" height="50" src="https://img.icons8.com/ios-filled/50/task.png" alt="task"/>
+            </a>
+
+            <h1 class="px-8">Task List App</h1>
+            <div class="border-4 rounded-lg bg-black text-white">
+                <a href="{{ route('tasks.add') }}">Add Task</a>
+            </div>
+        </div>
+
     </header>
-    <main>@yield('main')</main>
+    <main>
+        <h2 class="py-12 text-xl">@yield('title')</h2>
+        @yield('main')
+    </main>
     <footer></footer>
 </body>
 </html>

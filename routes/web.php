@@ -65,7 +65,7 @@ $tasks = [
 // manual data
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('task.home');
 });
 
 Route::get('/tasks/index', function () {
